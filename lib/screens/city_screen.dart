@@ -23,19 +23,27 @@ class _CityScreenState extends State<CityScreen> {
             children: <Widget>[
               Align(
                 alignment: Alignment.topLeft,
-                child: ElevatedButton(
+                child: TextButton(
                   onPressed: () {},
                   child: Icon(
                     Icons.arrow_back_ios,
                     size: 50.0,
+                    color: Colors.white,
                   ),
                 ),
               ),
               Container(
                 padding: EdgeInsets.all(20.0),
-                child: null,
+                child: TextField(
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                    decoration: KTextFieldInputDecoration,
+                    onChanged: (value) {
+                      //cityName = value;
+                    }),
               ),
-              ElevatedButton(
+              TextButton(
                 onPressed: () {},
                 child: Text(
                   'Get Weather',
