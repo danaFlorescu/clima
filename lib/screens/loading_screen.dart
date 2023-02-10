@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
+import 'package:clima/services/location.dart';
 
 class LoadingScreen extends StatefulWidget {
   @override
@@ -7,15 +7,18 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
-  //couple async + await allows other "process" to run while the other one is pending.
-  getLocation() async {
-    LocationPermission permission = await Geolocator.requestPermission();
-    LocationPermission permission2 = await Geolocator.checkPermission();
+  double latitude = 0;
+  double longitude = 0;
 
-    Position position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high);
+  void getLocation() async {
+    Location location = Location();
+//you can only wait on method that return future
+    await location.getCurrentLocation();
 
-    print(position);
+    latitude = location.latitude;
+    longitude = location.longitude;
+
+    print(latitude.toString() + '       ' + longitude.toString());
   }
 
   @override
