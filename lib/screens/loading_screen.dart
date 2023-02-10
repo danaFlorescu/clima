@@ -7,6 +7,7 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
+  //couple async + await allows other "process" to run while the other one is pending.
   getLocation() async {
     LocationPermission permission = await Geolocator.requestPermission();
     LocationPermission permission2 = await Geolocator.checkPermission();
@@ -19,21 +20,12 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
   @override
   void initState() {
-    getLocation();
     super.initState();
+    getLocation();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            getLocation();
-          },
-          child: Text('Get Location'),
-        ),
-      ),
-    );
+    return Scaffold();
   }
 }
