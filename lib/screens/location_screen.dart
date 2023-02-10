@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:clima/constants.dart';
 
 class LocationScreen extends StatefulWidget {
-  const LocationScreen({Key? key}) : super(key: key);
-
   @override
-  State<LocationScreen> createState() => _LocationScreenState();
+  _LocationScreenState createState() => _LocationScreenState();
 }
 
 class _LocationScreenState extends State<LocationScreen> {
@@ -26,24 +24,22 @@ class _LocationScreenState extends State<LocationScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
+            children: <Widget>[
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  TextButton(
+                children: <Widget>[
+                  ElevatedButton(
                     onPressed: () {},
                     child: Icon(
                       Icons.near_me,
                       size: 50.0,
-                      color: Colors.white,
                     ),
                   ),
-                  TextButton(
+                  ElevatedButton(
                     onPressed: () {},
                     child: Icon(
                       Icons.location_city,
                       size: 50.0,
-                      color: Colors.white,
                     ),
                   ),
                 ],
